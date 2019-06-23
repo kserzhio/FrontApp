@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 import { Provider } from 'react-redux';
 import App, { Container } from 'next/app';
 import { ApolloProvider } from 'react-apollo';
@@ -6,6 +6,10 @@ import { ApolloProvider } from 'react-apollo';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../libs/store';
 import withApollo from '../libs/withApollo';
+import './_app.scss';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Sidebar from '../components/Sidebar'
 
 export default withApollo(
     withRedux(initStore)(
@@ -24,7 +28,14 @@ export default withApollo(
                     <ApolloProvider client={apolloClient}>
                         <Container>
                             <Provider store={store}>
-                                <Component {...pageProps} />
+                                <Fragment>
+                                    <Header/>
+                                    <div className="main">
+                                         <Component {...pageProps} />
+                                         <Sidebar/>
+                                    </div>
+                                    <Footer/>
+                                </Fragment>
                             </Provider>
                         </Container>
                     </ApolloProvider>

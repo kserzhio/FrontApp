@@ -25,6 +25,7 @@
     "apollo-client": "^2.3.7",
     "apollo-link-http": "^1.5.4",
     "graphql": "^0.13.2",
+    "apollo-server-koa": "^2.0.0",
     "graphql-tag": "^2.9.2",
     "isomorphic-unfetch": "^2.1.0",
     "koa": "^2.5.2",
